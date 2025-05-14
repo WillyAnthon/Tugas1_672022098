@@ -24,12 +24,22 @@ class RegisterActivity : AppCompatActivity() {
             when {
                 fullName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() -> {
                     showToast("Semua field harus diisi")
+
+                    binding.etFullName.text?.clear()
+                    binding.etUsername.text?.clear()
+                    binding.etPassword.text?.clear()
+                    binding.etConfirmPassword.text?.clear()
                 }
                 password != confirmPassword -> {
                     showToast("Password dan Konfirmasi Password tidak cocok")
+
+                    binding.etFullName.text?.clear()
+                    binding.etUsername.text?.clear()
+                    binding.etPassword.text?.clear()
+                    binding.etConfirmPassword.text?.clear()
                 }
                 else -> {
-                    showToast("Registrasi Berhasil " + username)
+                    showToast("Registrasi Berhasil! " + username)
 
                     binding.etFullName.text?.clear()
                     binding.etUsername.text?.clear()
