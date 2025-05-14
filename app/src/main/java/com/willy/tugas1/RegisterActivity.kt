@@ -31,7 +31,6 @@ class RegisterActivity : AppCompatActivity() {
                 else -> {
                     showToast("Registrasi Berhasil " + username)
 
-                    // ✅ Kosongkan semua field
                     binding.etFullName.text?.clear()
                     binding.etUsername.text?.clear()
                     binding.etPassword.text?.clear()
