@@ -17,9 +17,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
-        val username = prefs.getString("username", "User")
+        val fullname = prefs.getString("fullname", "User")
 
-        binding.tvWelcome.text = "Welcome, $username"
+        binding.tvWelcome.text = "Welcome, $fullname"
 
         binding.btnLogout.setOnClickListener {
             Toast.makeText(this, "Logout Berhasil !!!", Toast.LENGTH_SHORT).show()

@@ -35,6 +35,7 @@ class RegisterActivity : AppCompatActivity() {
 
                     val prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
                     prefs.edit()
+                        .putString("fullname", fullName)
                         .putString("username", username)
                         .putString("password", password)
                         .apply()
