@@ -1,5 +1,7 @@
 package com.willy.tugas1
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,12 +33,27 @@ class RegisterActivity : AppCompatActivity() {
                 else -> {
                     showToast("Registrasi Berhasil! " + username)
 
+                    val prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
+                    prefs.edit()
+                        .putString("username", username)
+                        .putString("password", password)
+                        .apply()
+
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+
                     binding.etFullName.text?.clear()
                     binding.etUsername.text?.clear()
                     binding.etPassword.text?.clear()
                     binding.etConfirmPassword.text?.clear()
                 }
             }
+        }
+        binding.btnToLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
